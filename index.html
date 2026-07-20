@@ -362,8 +362,11 @@
 
   <div class="content">
 
-    <!-- VISÃO GERAL -->
+       <!-- ══════════════════════════════
+         VISÃO GERAL
+    ══════════════════════════════ -->
     <div class="section-page active" id="page-geral">
+
       <div class="sec-title">O que é o SCI</div>
       <div class="overview-card">
         <p>O Sistema Correcional Integrado (SCI) é a plataforma corporativa do Governo do Distrito Federal, sob a governança da Controladoria-Geral do Distrito Federal (CGDF), desenvolvida para gerenciar de forma integrada toda a atividade correcional — desde o recebimento de uma notícia de irregularidade até o encerramento do procedimento.</p>
@@ -398,74 +401,192 @@
         <div class="gloss-item"><div class="gloss-term">Matriz de Responsabilização</div><div class="gloss-def">Instrumento de sistematização que relaciona fatos, envolvidos, condutas, enquadramentos e recomendações, com vistas a subsidiar a análise e a tomada de decisão.</div></div>
         <div class="gloss-item"><div class="gloss-term">JAD Origem (PIP)</div><div class="gloss-def">Trata-se do JAD que originou a instauração do Procedimento de Investigação Preliminar (PIP). As informações cadastradas nesse JAD são automaticamente vinculadas e herdadas pelo sistema no registro do PIP, garantindo a continuidade e a rastreabilidade dos dados desde a origem da demanda.</div></div>
       </div>
-    </div><!-- /page-geral -->
 
-    <!-- ASSESSOR CORRECIONAL -->
+      <div class="sec-title" style="margin-top:22px">Fluxo Geral — JAD</div>
+      <table class="flow-table">
+        <thead><tr><th>#</th><th>Persona</th><th>O que faz</th><th>Resultado</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Apoio à Autoridade</td><td>Registra a demanda no SCI</td><td><em>Demanda criada</em></td></tr>
+          <tr><td>2</td><td>Autoridade Correcional</td><td>Analisa e encaminha a demanda</td><td><em>JAD criado (Aguardando distribuição)</em></td></tr>
+          <tr><td>3</td><td>Gestor Correcional</td><td>Distribui o JAD para um analista</td><td><em>JAD atribuído</em></td></tr>
+          <tr><td>4</td><td>Analista</td><td>Cadastra fatos, envolvidos, evidências; elabora análise e fundamentação</td><td><em>JAD enviado ao Revisor</em></td></tr>
+          <tr><td>5</td><td>Revisor JAD</td><td>Revisa a análise. Aprova ou devolve</td><td><em>JAD enviado ao Gestor ou devolvido ao analista</em></td></tr>
+          <tr><td>6</td><td>Gestor Correcional</td><td>Revisa o parecer. Aprova ou devolve</td><td><em>JAD enviado à Autoridade ou devolvido ao analista</em></td></tr>
+          <tr><td>7</td><td>Autoridade Correcional</td><td>Aprova ou devolve. Inicia ciclo de assinaturas (Analista → Revisor → Gestor → Autoridade)</td><td><em>Assinaturas em curso</em></td></tr>
+          <tr><td>8</td><td>Autoridade Correcional</td><td>Assinatura final</td><td><em>Processo retorna ao Analista para finalização</em></td></tr>
+          <tr><td>9</td><td>Analista</td><td>Finaliza o JAD no sistema</td><td><em>Processo encerrado → cai na caixa do Apoio</em></td></tr>
+          <tr><td>10</td><td>Apoio à Autoridade</td><td>Faz o download da nota técnica assinada e inclui o processo no SEI para seguir com a recomendação proposta</td><td><em>JAD encerrado</em></td></tr>
+        </tbody>
+      </table>
+
+      <div class="sec-title" style="margin-top:18px">Status do JAD</div>
+      <table class="flow-table">
+        <thead><tr><th colspan="2">Status</th><th>Significa</th></tr></thead>
+        <tbody>
+<tr><td colspan="2"><span class="badge badge-wait">Aguardando distribuição</span></td><td>JAD criado pela Autoridade. Gestor ainda não distribuiu para nenhum analista</td></tr>
+<tr><td colspan="2"><span class="badge badge-wait">Aguardando cadastro</span></td><td>JAD distribuído pelo Gestor. Analista ainda não iniciou</td></tr>
+<tr><td colspan="2"><span class="badge badge-blue">Em cadastro</span></td><td>Analista iniciou o registro de fatos, envolvidos e evidências</td></tr>
+<tr><td colspan="2"><span class="badge badge-wait">Aguardando análise</span></td><td>Cadastro concluído. Processo está com o Analista, mas ele ainda não iniciou a fase de análise técnica</td></tr>
+<tr><td colspan="2"><span class="badge badge-blue">Em análise</span></td><td>Cadastro concluído. Analista na fase de análise técnica</td></tr>
+<tr><td colspan="2"><span class="badge badge-blue">Em revisão — Revisor</span></td><td>Análise concluída e enviada ao Revisor</td></tr>
+<tr><td colspan="2"><span class="badge badge-blue">Em revisão — Gestor</span></td><td>Aprovado pelo Revisor, agora com o Gestor</td></tr>
+<tr><td colspan="2"><span class="badge badge-blue">Em revisão — Autoridade</span></td><td>Aprovado pelo Gestor, agora com a Autoridade</td></tr>
+<tr><td colspan="2"><span class="badge badge-wait">Aguardando assinaturas</span></td><td>Aprovado pela Autoridade. Aguardando ciclo de assinaturas</td></tr>
+<tr><td colspan="2"><span class="badge badge-wait">Aguardando Finalização</span></td><td>Nota técnica assinada por todos. Processo retornou ao Analista, que precisa realizar a ação final (Finalizar, Invalidar ou Encaminhar). Atenção: o Apoio não deve agir neste status.</td></tr>
+<tr><td colspan="2"><span class="badge badge-done">Concluído</span></td><td>Nota técnica assinada por todos e Analista finalizou. Processo pronto para o Apoio registrar o número do processo SEI.</td></tr>
+<tr><td colspan="2"><span class="badge badge-done">Finalizado - Encaminhado via SEI</span></td><td>Apoio registrou o número do processo SEI. Ciclo totalmente encerrado.</td></tr>
+<!-- NOVOS STATUS - ENCAMINHAMENTO A ÓRGÃO EXTERNO -->
+<tr><td colspan="2"><span class="badge badge-wait">Aguardando Encaminhamento</span></td><td>Analista preparou o processo para encaminhamento a órgão externo. Apoio à Autoridade (CGDF) revisa os documentos antes do envio.</td></tr>
+<tr><td colspan="2"><span class="badge badge-blue">Processo Encaminhado</span></td><td>Apoio confirmou. Processo recebido na caixa de Processos Recebidos da Autoridade do órgão de destino</td></tr>
+<tr><td colspan="2"><span class="badge badge-wait">Aguardando Decisão da Devolução</span></td><td>Órgão de destino devolveu o processo. Autoridade da CGDF decide entre aceitar a avocação ou rejeitar a devolução</td></tr>
+        </tbody>
+      </table>
+
+      <div class="sec-title" style="margin-top:18px">Fluxo Geral — PIP</div>
+      <table class="flow-table">
+        <thead><tr><th>#</th><th>Persona</th><th>O que faz</th><th>Resultado</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Gestor Correcional</td><td>Sugere os Servidores Designados (Investigadores) para o PIP</td><td><em>Investigadores indicados</em></td></tr>
+          <tr><td>2</td><td>Autoridade Correcional</td><td>Valida investigadores e assina a instauração</td><td><em>PIP formalmente instaurado</em></td></tr>
+          <tr><td>3</td><td>Apoio à Autoridade</td><td>Elabora despacho, registra no SEI e encaminha ao Investigador</td><td><em>Processo autuado; Investigador habilitado</em></td></tr>
+          <tr><td>4</td><td>Servidor Designado</td><td>Edita fato herdado do JAD, registra diligências, preenche análise e fundamentação</td><td><em>Relatório concluído → Revisor</em></td></tr>
+          <tr><td>5</td><td>Revisor Correcional</td><td>Revisa a análise técnica. Aprova ou devolve</td><td><em>PIP enviado ao Gestor</em></td></tr>
+          <tr><td>6</td><td>Gestor Correcional</td><td>Valida institucionalmente. Aprova ou devolve</td><td><em>PIP enviado à Autoridade</em></td></tr>
+          <tr><td>7</td><td>Autoridade Correcional</td><td>Aprova ou devolve. Inicia ciclo de assinaturas</td><td><em>Assinaturas em curso</em></td></tr>
+          <tr><td>8</td><td>Autoridade Correcional</td><td>Assinatura final</td><td><em>PIP concluído → Apoio</em></td></tr>
+          <tr><td>9</td><td>Apoio à Autoridade</td><td>Download do relatório e encaminhamento via SEI</td><td><em>Processo encerrado</em></td></tr>
+        </tbody>
+      </table>
+
+      <div class="sec-title" style="margin-top:18px">Status do PIP</div>
+      <table class="flow-table">
+        <thead><tr><th colspan="2">Status</th><th>Significa</th></tr></thead>
+        <tbody>
+          <tr><td colspan="2"><span class="badge badge-wait">Aguardando Despacho</span></td><td>Autoridade determinou a instauração do PIP. Apoio precisa elaborar o despacho de instauração</td></tr>
+          <tr><td colspan="2"><span class="badge badge-blue">Em cadastro</span></td><td>Investigador iniciou o registro de fatos e diligências</td></tr>
+          <tr><td colspan="2"><span class="badge badge-blue">Em análise</span></td><td>Cadastro concluído. Investigador na fase de análise técnica</td></tr>
+          <tr><td colspan="2"><span class="badge badge-blue">Em revisão — Revisor</span></td><td>Análise concluída e enviada ao Revisor</td></tr>
+          <tr><td colspan="2"><span class="badge badge-blue">Em revisão — Gestor</span></td><td>Aprovado pelo Revisor, agora com o Gestor</td></tr>
+          <tr><td colspan="2"><span class="badge badge-blue">Em revisão — Autoridade</span></td><td>Aprovado pelo Gestor, agora com a Autoridade</td></tr>
+          <tr><td colspan="2"><span class="badge badge-wait">Aguardando assinaturas</span></td><td>Aprovado pela Autoridade. Aguardando ciclo de assinaturas</td></tr>
+          <tr><td colspan="2"><span class="badge badge-wait">Aguardando registro no SEI</span></td><td>Despacho assinado pela Autoridade. Apoio deve autuar o processo no SEI e registrar o número</td></tr>
+          <tr><td colspan="2"><span class="badge badge-done">Concluído</span></td><td>Relatório assinado por todos. PIP encerrado</td></tr>
+        </tbody>
+      </table>
+    </div><!-- /geral -->
+        <!-- ══════════════════════════════
+         ASSESSOR CORRECIONAL
+    ══════════════════════════════ -->
     <div class="section-page" id="page-assessor">
       <div class="mod-tabs">
         <button class="mod-tab active-jad" onclick="showTab('assessor','jad')" id="tab-assessor-jad">Módulo JAD</button>
         <button class="mod-tab" onclick="showTab('assessor','pip')" id="tab-assessor-pip">Módulo PIP</button>
       </div>
+
+      <!-- painel JAD -->
       <div class="tab-panel active" id="panel-assessor-jad">
         <div class="persona-intro-box">
           <span class="persona-tag">Assessor Correcional · JAD</span>
           <p>O perfil de <strong>Assessor Correcional</strong> foi criado para oferecer apoio técnico direcionado à Autoridade Correcional, sem interferir no fluxo principal do processo. O Assessor tem visão ampla do processo e pode auxiliar na tomada de decisão por meio de comentários e observações.</p>
         </div>
         <div class="access-box">🔗 sci.cg.df.gov.br &nbsp;·&nbsp; Login e Senha PARTICIPA</div>
+
         <div class="sec-title">Acesso e Permissões</div>
         <div class="steps">
           <div class="step-card">
             <div class="step-num">1</div>
             <div class="step-body">
               <div class="step-title">Acesso de Leitura</div>
-              <ul><li>O Assessor Correcional tem acesso de leitura ao processo, assim como a Autoridade</li><li>Pode visualizar todos os dados, anexos, a matriz de responsabilização e a nota técnica</li></ul>
+              <ul>
+                <li>O Assessor Correcional tem acesso de leitura ao processo, assim como a Autoridade</li>
+                <li>Pode visualizar todos os dados, anexos, a matriz de responsabilização e a nota técnica</li>
+              </ul>
             </div>
           </div>
           <div class="step-card">
             <div class="step-num">2</div>
             <div class="step-body">
               <div class="step-title">Campo de Comentários</div>
-              <ul><li>O campo para registrar comentários e observações fica disponível <strong>apenas</strong> quando o processo está na etapa da Autoridade</li><li>Status: <span class="badge badge-blue">Em revisão — Autoridade</span></li></ul>
+              <ul>
+                <li>O campo para registrar comentários e observações fica disponível <strong>apenas</strong> quando o processo está na etapa da Autoridade</li>
+                <li>Status: <span class="badge badge-blue">Em revisão — Autoridade</span></li>
+              </ul>
             </div>
           </div>
           <div class="step-card">
             <div class="step-num">3</div>
             <div class="step-body">
               <div class="step-title">Visibilidade dos Comentários</div>
-              <ul><li>Os comentários registrados pelo Assessor são visíveis à Autoridade como subsídio à sua decisão</li><li>Identificados com o <strong>nome do usuário</strong> que os registrou</li></ul>
+              <ul>
+                <li>Os comentários registrados pelo Assessor são visíveis à Autoridade como subsídio à sua decisão</li>
+                <li>Identificados com o <strong>nome do usuário</strong> que os registrou</li>
+              </ul>
             </div>
           </div>
         </div>
+
         <div class="sec-title">Regras e Limitações</div>
         <div class="callout callout-warn">
-          <strong>🚫 O Assessor Correcional NÃO pode:</strong><br>• Assinar documentos<br>• Aprovar ou reprovar o processo<br>• Devolver o processo para etapas anteriores<br>• Participar do ciclo de assinaturas
+          <strong>🚫 O Assessor Correcional NÃO pode:</strong><br>
+          • Assinar documentos<br>
+          • Aprovar ou reprovar o processo<br>
+          • Devolver o processo para etapas anteriores<br>
+          • Participar do ciclo de assinaturas
         </div>
-        <div class="callout callout-info"><strong>✅ Importante:</strong> A ausência de comentário do Assessor <strong>não impede</strong> o avanço do processo para nenhuma etapa.</div>
+        <div class="callout callout-info">
+          <strong>✅ Importante:</strong> A ausência de comentário do Assessor <strong>não impede</strong> o avanço do processo para nenhuma etapa.
+        </div>
+
         <div class="sec-title">Gestão do Assessor</div>
         <div class="callout callout-green">
-          <strong>👤 Quem pode designar um Assessor?</strong><br>A designação é uma atribuição <strong>exclusiva do Gestor Correcional</strong>. Ele pode, a qualquer momento e diretamente no sistema:
-          <ul style="margin-top:8px;list-style:none;padding:0;"><li>✅ <strong>Incluir</strong> um ou mais usuários como Assessores Correcionais em um processo (JAD, PIP, PAD, etc.)</li><li>✅ <strong>Remover</strong> Assessores Correcionais de um processo</li></ul>
+          <strong>👤 Quem pode designar um Assessor?</strong><br>
+          A designação é uma atribuição <strong>exclusiva do Administrador</strong>. Ele pode, a qualquer momento e diretamente no sistema:
+          <ul style="margin-top:8px;list-style:none;padding:0;">
+            <li>✅ <strong>Incluir</strong> um ou mais usuários como Assessores Correcionais em um processo (JAD, PIP, PAD, etc.)</li>
+            <li>✅ <strong>Remover</strong> Assessores Correcionais de um processo</li>
+          </ul>
         </div>
-        <div class="callout callout-info"><strong>🔒 Regra de Segregação:</strong> O sistema <strong>impede</strong> que um usuário designado como Assessor atue simultaneamente como <strong>Revisor</strong> ou <strong>Gestor</strong> no mesmo processo.</div>
+        <div class="callout callout-info">
+          <strong>🔒 Regra de Segregação:</strong> O sistema <strong>impede</strong> que um usuário designado como Assessor atue simultaneamente como <strong>Revisor</strong> ou <strong>Gestor</strong> no mesmo processo.
+        </div>
+
         <div class="sec-title">Observações para Versões Futuras</div>
-        <div class="overview-card"><p>As seguintes funcionalidades estão previstas para versões futuras do sistema:</p><ul style="margin-top:8px;padding-left:20px;"><li>🔜 Vinculação do Assessor a papéis distintos da Autoridade (ex.: Gestor)</li><li>🔜 Designação automática de um Assessor padrão por órgão e tipo de processo</li></ul></div>
+        <div class="overview-card">
+          <p>As seguintes funcionalidades estão previstas para versões futuras do sistema:</p>
+          <ul style="margin-top:8px;padding-left:20px;">
+            <li>🔜 Vinculação do Assessor a papéis distintos da Autoridade (ex.: Gestor)</li>
+            <li>🔜 Designação automática de um Assessor padrão por órgão e tipo de processo</li>
+          </ul>
+        </div>
       </div>
+
+      <!-- painel PIP -->
       <div class="tab-panel" id="panel-assessor-pip">
         <div class="persona-intro-box">
           <span class="persona-tag pip-tag">Assessor Correcional · PIP</span>
           <p>No módulo PIP, o Assessor Correcional mantém as mesmas permissões e limitações: acesso de leitura completo e possibilidade de registrar comentários quando o processo estiver <strong>"Em revisão — Autoridade"</strong>.</p>
         </div>
         <div class="access-box">🔗 sci.cg.df.gov.br &nbsp;·&nbsp; Login e Senha PARTICIPA</div>
-        <div class="callout callout-info"><strong>📌 Mesmas regras do módulo JAD:</strong><br>• Acesso de leitura a dados, anexos, matriz e nota técnica<br>• Comentários disponíveis apenas em <span class="badge badge-blue">Em revisão — Autoridade</span><br>• Comentários visíveis à Autoridade com identificação do usuário<br>• Não pode assinar, aprovar, reprovar, devolver ou participar do ciclo de assinaturas</div>
-        <div class="callout callout-green"><strong>👤 Gestão:</strong> A designação e remoção de Assessores no PIP também é realizada <strong>exclusivamente pelo Gestor Correcional</strong>.</div>
+
+        <div class="callout callout-info">
+          <strong>📌 Mesmas regras do módulo JAD:</strong><br>
+          • Acesso de leitura a dados, anexos, matriz e nota técnica<br>
+          • Comentários disponíveis apenas em <span class="badge badge-blue">Em revisão — Autoridade</span><br>
+          • Comentários visíveis à Autoridade com identificação do usuário<br>
+          • Não pode assinar, aprovar, reprovar, devolver ou participar do ciclo de assinaturas
+        </div>
+        <div class="callout callout-green">
+          <strong>👤 Gestão:</strong> A designação e remoção de Assessores no PIP também é realizada <strong>exclusivamente pelo Administrador</strong>.
+        </div>
       </div>
     </div>
-
+    
     <!-- REGRAS DE OURO -->
     <div class="section-page" id="page-regras">
       <div class="sec-title">👑 Regras de Ouro do SCI</div>
       <div class="callout callout-info" style="background: #0d2240; color: white; border-left-color: #f0a000;">
-        <strong style="font-size: 18px;">Princípio Fundamental do SCI</strong><br>O sistema pode simplificar, automatizar e acelerar atividades, mas nunca pode contrariar a legislação, os normativos aplicáveis ou as garantias do processo correcional.
+        <strong style="font-size: 18px;">Princípio Fundamental do SCI</strong><br>
+        O sistema pode simplificar, automatizar e acelerar atividades, mas nunca pode contrariar a legislação, os normativos aplicáveis ou as garantias do processo correcional.
       </div>
       <div class="gloss-grid" style="grid-template-columns: 1fr;">
         <div class="gloss-item"><div class="gloss-term">1. A legislação prevalece sobre o sistema</div><div class="gloss-def">O SCI é uma ferramenta de apoio à atividade correcional. Suas funcionalidades refletem os procedimentos previstos na legislação, que permanece como referência principal para a atuação dos usuários.</div></div>
@@ -479,57 +600,120 @@
         <div class="gloss-item"><div class="gloss-term">9. Assinar significa concordar</div><div class="gloss-def">Assinatura eletrônica = responsabilidade pelo conteúdo.</div></div>
       </div>
     </div>
-
-    <!-- FLUXOGRAMAS -->
+    
+    <!-- ==================== FLUXOGRAMAS ==================== -->
     <div class="section-page" id="page-fluxogramas">
       <div class="sec-title">📊 Fluxogramas do SCI</div>
+
+    <!-- BOTÃO JAD -->
       <div style="text-align: center; margin-bottom: 20px;">
-        <button id="btn-jad-fluxo" style="background: var(--accent); color: white; border: none; padding: 12px 30px; border-radius: 40px; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">⚖️ Ver Fluxo do JAD</button>
+        <button id="btn-jad-fluxo" style="background: var(--accent); color: white; border: none; padding: 12px 30px; border-radius: 40px; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
+          ⚖️ Ver Fluxo do JAD
+        </button>
       </div>
+
+      <!-- CONTEÚDO JAD (oculto inicialmente) -->
       <div id="conteudo-jad" style="display: none;">
         <div class="sec-title" style="margin-top: 10px;">Fluxo do JAD (Juízo de Admissibilidade)</div>
         <div style="background: white; border-radius: 16px; padding: 24px;">
           <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">📋 DENÚNCIA</div><div style="font-size: 20px;">↓</div>
-            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">📝 DEMANDA — Registrada pelo <span style="color: #ffd966;">APOIO</span></div><div style="font-size: 20px;">↓</div>
-            <div style="background: var(--accent); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">⚖️ AUTORIDADE — Analisa e encaminha para o JAD</div><div style="font-size: 20px;">↓</div>
-            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">📊 GESTOR — Distribui o JAD para um ANALISTA</div><div style="font-size: 20px;">↓</div>
-            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">🔍 ANALISTA — Cadastra fatos, envolvidos e evidências</div><div style="font-size: 20px;">↓</div>
-            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">🔎 REVISOR — Revisa a análise técnica</div><div style="font-size: 20px;">↓</div>
-            <div style="background: #fff3e0; color: #7a5000; padding: 8px 20px; border-radius: 30px; text-align: center; font-weight: bold;">🔄 A qualquer momento, os perfis podem DEVOLVER o processo para a etapa anterior com justificativa</div><div style="font-size: 20px;">↓</div>
-            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">📊 GESTOR — Revisa a Nota Técnica</div><div style="font-size: 20px;">↓</div>
-            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">⚖️ AUTORIDADE — Faz a revisão final</div><div style="font-size: 20px;">↓</div>
-            <div style="background: var(--accent); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">✍️ CICLO DE ASSINATURAS — Analista → Revisor → Gestor → Autoridade</div><div style="font-size: 20px;">↓</div>
-            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">🔍 ANALISTA — Finaliza o JAD</div><div style="font-size: 20px;">↓</div>
-            <div style="background: var(--accent); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">✅ CONCLUÍDO — Nota técnica assinada</div><div style="font-size: 20px;">↓</div>
+            
+            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">📋 DENÚNCIA</div>
+            <div style="font-size: 20px;">↓</div>
+            
+            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">📝 DEMANDA — Registrada pelo <span style="color: #ffd966;">APOIO</span></div>
+            <div style="font-size: 20px;">↓</div>
+            
+            <div style="background: var(--accent); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">⚖️ AUTORIDADE — Analisa e encaminha para o JAD</div>
+            <div style="font-size: 20px;">↓</div>
+            
+            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">📊 GESTOR — Distribui o JAD para um ANALISTA</div>
+            <div style="font-size: 20px;">↓</div>
+            
+            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">🔍 ANALISTA — Cadastra fatos, envolvidos e evidências</div>
+            <div style="font-size: 20px;">↓</div>
+            
+            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">🔎 REVISOR — Revisa a análise técnica </div>
+            <div style="font-size: 20px;">↓</div>
+            
+            <div style="background: #fff3e0; color: #7a5000; padding: 8px 20px; border-radius: 30px; text-align: center; font-weight: bold;">🔄 A qualquer momento, os perfis podem DEVOLVER o processo para a etapa anterior com justificativa</div>
+            <div style="font-size: 20px;">↓</div>
+            
+            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">📊 GESTOR — Revisa a Nota Técnica</div>
+            <div style="font-size: 20px;">↓</div>
+            
+            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">⚖️ AUTORIDADE — Faz a revisão final</div>
+            <div style="font-size: 20px;">↓</div>
+            
+            <div style="background: var(--accent); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">✍️ CICLO DE ASSINATURAS — Analista → Revisor → Gestor → Autoridade</div>
+            <div style="font-size: 20px;">↓</div>
+            
+            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">🔍 ANALISTA — Finaliza o JAD</div>
+            <div style="font-size: 20px;">↓</div>
+            
+            <div style="background: var(--accent); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">✅ CONCLUÍDO — Nota técnica assinada</div>
+            <div style="font-size: 20px;">↓</div>
+            
             <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">📋 APOIO — Registra no SEI e encaminha</div>
+            
           </div>
         </div>
       </div>
+
+      <!-- BOTÃO PIP -->
       <div style="text-align: center; margin: 30px 0 20px;">
-        <button id="btn-pip-fluxo" style="background: var(--pip-color); color: white; border: none; padding: 12px 30px; border-radius: 40px; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">🔍 Ver Fluxo do PIP</button>
+        <button id="btn-pip-fluxo" style="background: var(--pip-color); color: white; border: none; padding: 12px 30px; border-radius: 40px; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
+          🔍 Ver Fluxo do PIP
+        </button>
       </div>
+
+      <!-- CONTEÚDO PIP (oculto inicialmente) -->
       <div id="conteudo-pip" style="display: none;">
         <div class="sec-title" style="margin-top: 10px;">Fluxo do PIP (Procedimento de Investigação Preliminar)</div>
         <div style="background: white; border-radius: 16px; padding: 24px;">
           <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">📊 GESTOR — Sugere os investigadores</div><div style="font-size: 20px;">↓</div>
-            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">📋 APOIO — Elabora despacho e registra no SEI</div><div style="font-size: 20px;">↓</div>
-            <div style="background: var(--accent); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">⚖️ AUTORIDADE — Valida os investigadores e assina a instauração</div><div style="font-size: 20px;">↓</div>
-            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">🔍 INVESTIGADOR — Conduz a investigação (diligências, análise)</div><div style="font-size: 20px;">↓</div>
-            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">🔎 REVISOR — Revisão técnica do relatório</div><div style="font-size: 20px;">↓</div>
-            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">📊 GESTOR — Valida o relatório</div><div style="font-size: 20px;">↓</div>
-            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">⚖️ AUTORIDADE — Decisão final</div><div style="font-size: 20px;">↓</div>
-            <div style="background: var(--accent); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">✍️ CICLO DE ASSINATURAS — Investigador → Revisor → Gestor → Autoridade</div><div style="font-size: 20px;">↓</div>
+            
+            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">📊 GESTOR — Sugere os investigadores</div>
+            <div style="font-size: 20px;">↓</div>
+            
+            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">📋 APOIO — Elabora despacho e registra no SEI</div>
+            <div style="font-size: 20px;">↓</div>
+            
+            <div style="background: var(--accent); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">⚖️ AUTORIDADE — Valida os investigadores e assina a instauração</div>
+            <div style="font-size: 20px;">↓</div>
+            
+            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">🔍 INVESTIGADOR — Conduz a investigação (diligências, análise)</div>
+            <div style="font-size: 20px;">↓</div>
+            
+            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">🔎 REVISOR — Revisão técnica do relatório</div>
+            <div style="font-size: 20px;">↓</div>
+            
+            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">📊 GESTOR — Valida o relatório</div>
+            <div style="font-size: 20px;">↓</div>
+            
+            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">⚖️ AUTORIDADE — Decisão final</div>
+            <div style="font-size: 20px;">↓</div>
+            
+            <div style="background: var(--accent); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">✍️ CICLO DE ASSINATURAS — Investigador → Revisor → Gestor → Autoridade</div>
+            <div style="font-size: 20px;">↓</div>
+            
             <div style="background: var(--accent); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">✅ PIP CONCLUÍDO — Apoio encaminha via SEI</div>
+            
           </div>
         </div>
-        <div style="display: flex; justify-content: center; margin-top: 15px;"><div style="background: #fff3e0; border-radius: 30px; padding: 8px 20px; text-align: center;"><span style="font-size: 13px;">🔄 Todos os perfis podem <strong>DEVOLVER</strong> o processo para a etapa anterior</span></div></div>
+        <div style="display: flex; justify-content: center; margin-top: 15px;">
+          <div style="background: #fff3e0; border-radius: 30px; padding: 8px 20px; text-align: center;">
+            <span style="font-size: 13px;">🔄 Todos os perfis podem <strong>DEVOLVER</strong> o processo para a etapa anterior</span>
+          </div>
+        </div>
       </div>
-      <div class="callout callout-info" style="margin-top: 20px; font-size: 12px;"><strong>📌 Significados:</strong> JAD = Juízo de Admissibilidade · PIP = Procedimento de Investigação Preliminar</div>
-    </div>
 
-  </div><!-- /content -->
+      <!-- Legenda -->
+      <div class="callout callout-info" style="margin-top: 20px; font-size: 12px;">
+        <strong>📌 Significados:</strong> JAD = Juízo de Admissibilidade · PIP = Procedimento de Investigação Preliminar
+      </div>
+    </div>
+    
     <!-- ══════════════════════════════
          APOIO À AUTORIDADE
     ══════════════════════════════ -->
