@@ -333,6 +333,10 @@
   <button class="nav-btn" onclick="showSection('revisor')" id="nav-revisor">
     <span class="nav-icon">🔎</span> Revisor
   </button>
+  <div class="sidebar-label" style="margin-top:6px">Por Perfil</div>
+<button class="nav-btn" onclick="showSection('assessor')" id="nav-assessor">
+  <span class="nav-icon">👥</span> Assessor Correcional
+</button>
    <div class="sidebar-label" style="margin-top:6px">Documentos</div>
   <button class="nav-btn" onclick="showSection('regras')" id="nav-regras">
     <span class="nav-icon">👑</span> Regras de Ouro
@@ -466,7 +470,110 @@
         </tbody>
       </table>
     </div><!-- /geral -->
-    
+        <!-- ══════════════════════════════
+         ASSESSOR CORRECIONAL
+    ══════════════════════════════ -->
+    <div class="section-page" id="page-assessor">
+      <div class="mod-tabs">
+        <button class="mod-tab active-jad" onclick="showTab('assessor','jad')" id="tab-assessor-jad">Módulo JAD</button>
+        <button class="mod-tab" onclick="showTab('assessor','pip')" id="tab-assessor-pip">Módulo PIP</button>
+      </div>
+
+      <div class="tab-panel active" id="panel-assessor-jad">
+        <div class="persona-intro-box">
+          <span class="persona-tag">Assessor Correcional · JAD</span>
+          <p>O perfil de <strong>Assessor Correcional</strong> foi criado para oferecer apoio técnico direcionado à Autoridade Correcional, sem interferir no fluxo principal do processo. O Assessor tem visão ampla do processo e pode auxiliar na tomada de decisão por meio de comentários e observações.</p>
+        </div>
+        <div class="access-box">🔗 sci.cg.df.gov.br &nbsp;·&nbsp; Login e Senha PARTICIPA</div>
+
+        <div class="sec-title">Acesso e Permissões</div>
+        <div class="steps">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <div class="step-title">Acesso de Leitura</div>
+              <ul>
+                <li>O Assessor Correcional tem acesso de leitura ao processo, assim como a Autoridade</li>
+                <li>Pode visualizar todos os dados, anexos, a matriz de responsabilização e a nota técnica</li>
+              </ul>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <div class="step-title">Campo de Comentários</div>
+              <ul>
+                <li>O campo para registrar comentários e observações fica disponível <strong>apenas</strong> quando o processo está na etapa da Autoridade</li>
+                <li>Status: <span class="badge badge-blue">Em revisão — Autoridade</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <div class="step-title">Visibilidade dos Comentários</div>
+              <ul>
+                <li>Os comentários registrados pelo Assessor são visíveis à Autoridade como subsídio à sua decisão</li>
+                <li>Identificados com o <strong>nome do usuário</strong> que os registrou</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="sec-title">Regras e Limitações</div>
+        <div class="callout callout-warn">
+          <strong>🚫 O Assessor Correcional NÃO pode:</strong><br>
+          • Assinar documentos<br>
+          • Aprovar ou reprovar o processo<br>
+          • Devolver o processo para etapas anteriores<br>
+          • Participar do ciclo de assinaturas
+        </div>
+        <div class="callout callout-info">
+          <strong>✅ Importante:</strong> A ausência de comentário do Assessor <strong>não impede</strong> o avanço do processo para nenhuma etapa.
+        </div>
+
+        <div class="sec-title">Gestão do Assessor</div>
+        <div class="callout callout-green">
+          <strong>👤 Quem pode designar um Assessor?</strong><br>
+          A designação é uma atribuição <strong>exclusiva do Gestor Correcional</strong>. Ele pode, a qualquer momento e diretamente no sistema:
+          <ul style="margin-top:8px;list-style:none;padding:0;">
+            <li>✅ <strong>Incluir</strong> um ou mais usuários como Assessores Correcionais em um processo (JAD, PIP, PAD, etc.)</li>
+            <li>✅ <strong>Remover</strong> Assessores Correcionais de um processo</li>
+          </ul>
+        </div>
+        <div class="callout callout-info">
+          <strong>🔒 Regra de Segregação:</strong> O sistema <strong>impede</strong> que um usuário designado como Assessor atue simultaneamente como <strong>Revisor</strong> ou <strong>Gestor</strong> no mesmo processo.
+        </div>
+
+        <div class="sec-title">Observações para Versões Futuras</div>
+        <div class="overview-card">
+          <p>As seguintes funcionalidades estão previstas para versões futuras do sistema:</p>
+          <ul style="margin-top:8px;padding-left:20px;">
+            <li>🔜 Vinculação do Assessor a papéis distintos da Autoridade (ex.: Gestor)</li>
+            <li>🔜 Designação automática de um Assessor padrão por órgão e tipo de processo</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-assessor-pip">
+        <div class="persona-intro-box">
+          <span class="persona-tag pip-tag">Assessor Correcional · PIP</span>
+          <p>No módulo PIP, o Assessor Correcional mantém as mesmas permissões e limitações: acesso de leitura completo e possibilidade de registrar comentários quando o processo estiver <strong>"Em revisão — Autoridade"</strong>.</p>
+        </div>
+        <div class="access-box">🔗 sci.cg.df.gov.br &nbsp;·&nbsp; Login e Senha PARTICIPA</div>
+
+        <div class="callout callout-info">
+          <strong>📌 Mesmas regras do módulo JAD:</strong><br>
+          • Acesso de leitura a dados, anexos, matriz e nota técnica<br>
+          • Comentários disponíveis apenas em <span class="badge badge-blue">Em revisão — Autoridade</span><br>
+          • Comentários visíveis à Autoridade com identificação do usuário<br>
+          • Não pode assinar, aprovar, reprovar, devolver ou participar do ciclo de assinaturas
+        </div>
+        <div class="callout callout-green">
+          <strong>👤 Gestão:</strong> A designação e remoção de Assessores no PIP também é realizada <strong>exclusivamente pelo Gestor Correcional</strong>.
+        </div>
+      </div>
+    </div>
     <!-- REGRAS DE OURO -->
     <div class="section-page" id="page-regras">
       <div class="sec-title">👑 Regras de Ouro do SCI</div>
