@@ -62,7 +62,7 @@
     color: #7aa8cc; letter-spacing: 1.4px;
     text-transform: uppercase; margin-top: 4px;
   }
-  .sidebar-label {
+  .-label {
     font-size: 9px; font-weight: 700;
     color: rgba(255,255,255,.3);
     letter-spacing: 1.5px; text-transform: uppercase;
@@ -82,7 +82,7 @@
   .nav-btn:hover { background: rgba(255,255,255,.06); color: white; }
   .nav-btn.active { background: rgba(30,95,168,.28); color: white; border-left-color: #5b9fd6; }
   .nav-icon { font-size: 13px; flex-shrink: 0; }
-  .sidebar-footer {
+  .-footer {
     margin-top: auto;
     padding: 14px 18px;
     border-top: 1px solid rgba(255,255,255,.1);
@@ -91,7 +91,7 @@
   }
 
   /* ── MAIN ── */
-  .main { margin-left: var(--sidebar-w); flex: 1; }
+  .main { margin-left: var(---w); flex: 1; }
   .topbar {
     background: white;
     border-bottom: 2px solid var(--border);
@@ -333,11 +333,11 @@
   <button class="nav-btn" onclick="showSection('revisor')" id="nav-revisor">
     <span class="nav-icon">🔎</span> Revisor
   </button>
-  <div class="sidebar-label" style="margin-top:6px">Por Perfil</div>
-<button class="nav-btn" onclick="showSection('assessor')" id="nav-assessor">
-  <span class="nav-icon">👥</span> Assessor Correcional
-</button>
-   <div class="sidebar-label" style="margin-top:6px">Documentos</div>
+  <button class="nav-btn" onclick="showSection('assessor')" id="nav-assessor">
+    <span class="nav-icon">👥</span> Assessor Correcional
+  </button>
+
+  <div class="sidebar-label" style="margin-top:6px">Documentos</div>
   <button class="nav-btn" onclick="showSection('regras')" id="nav-regras">
     <span class="nav-icon">👑</span> Regras de Ouro
   </button>
