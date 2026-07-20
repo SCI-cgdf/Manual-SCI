@@ -6,7 +6,51 @@
 <title>SCI — Cartilha Interativa · JAD + PIP</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
-<style>
+  /* ── CORREÇÃO PARA O SCROLL EM TODAS AS PÁGINAS ── */
+  .content {
+    padding: 22px 28px;
+    max-width: none;
+    width: 95%;
+    margin: 0 auto;
+    min-height: 100vh;
+    overflow-y: visible;
+    height: auto;
+  }
+
+  .section-page {
+    display: none;
+    min-height: 100vh;
+    height: auto;
+    overflow: visible;
+  }
+
+  .section-page.active {
+    display: block;
+    min-height: 100vh;
+    height: auto;
+    overflow: visible;
+  }
+
+  .main {
+    margin-left: var(--sidebar-w);
+    flex: 1;
+    min-height: 100vh;
+    height: auto;
+    overflow: visible;
+  }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    min-height: 100vh;
+    font-size: 20px;
+    height: auto;
+    overflow-y: auto;
+  }
+</style>
+  <style>
   :root {
     --navy:        #0d2240;
     --navy-mid:    #153460;
