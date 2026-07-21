@@ -47,6 +47,7 @@
     flex-direction: column;
     z-index: 100;
     overflow-y: auto;
+    padding-bottom: 20px;
   }
   .sidebar-logo {
     padding: 20px 18px 16px;
@@ -91,7 +92,7 @@
   }
 
   /* ── MAIN ── */
-  .main { margin-left: var(---w); flex: 1; }
+  .main { margin-left: var(--sidebar-w); flex: 1; overflow-y: auto; min-height: 100vh; }
   .topbar {
     background: white;
     border-bottom: 2px solid var(--border);
@@ -104,7 +105,7 @@
     font-size: 18px; font-weight: 800; color: var(--navy);
   }
   .topbar-desc { font-size: 13px; color: var(--muted); }
-  .content { padding: 22px 28px; max-width: none; width: 95%; margin: 0 auto; }
+  .content { padding: 22px 28px; max-width: 1100px; width: 100%; margin: 0 auto; }
 
   /* ── MODULE TABS ── */
   .mod-tabs {
@@ -312,12 +313,12 @@
     <div class="sci-sub">Sistema Correcional Integrado</div>
   </div>
 
-  <div class="sidebar-label">Geral</div>
+  <div class="-label">Geral</div>
   <button class="nav-btn active" onclick="showSection('geral')" id="nav-geral">
     <span class="nav-icon">🏠</span> Visão Geral
   </button>
 
-  <div class="sidebar-label" style="margin-top:6px">Por Perfil</div>
+  <div class="-label" style="margin-top:6px">Por Perfil</div>
   <button class="nav-btn" onclick="showSection('apoio')" id="nav-apoio">
     <span class="nav-icon">📋</span> Apoio à Autoridade
   </button>
@@ -337,14 +338,14 @@
     <span class="nav-icon">👥</span> Assessor Correcional
   </button>
 
-  <div class="sidebar-label" style="margin-top:6px">Documentos</div>
+  <div class="-label" style="margin-top:6px">Documentos</div>
   <button class="nav-btn" onclick="showSection('regras')" id="nav-regras">
     <span class="nav-icon">👑</span> Regras de Ouro
   </button>
   <button class="nav-btn" onclick="showSection('fluxogramas')" id="nav-fluxogramas">
     <span class="nav-icon">📊</span> Fluxogramas
   </button>
-  <div class="sidebar-footer">
+  <div class="-footer">
     SCI · Cartilha de Uso · JAD + PIP<br>
     Março de 2026<br><br>
     <strong style="color:white;font-size:11px;display:block;margin-bottom:2px">Erika Oliveira</strong><span style="color:#93b3df;font-size:9px;display:block;margin-bottom:4px">Product Owner · Responsável Técnica SCI</span>erika.oliveira@cg.df.gov.br<br>☎ 61-2108-3294 · (61) 98334-1110
@@ -1193,13 +1194,13 @@
                 <tbody>
                   <tr>
                     <td><strong>Aceitar a Avocação</strong></td>
-                    <td>A devolução é procedente — CGDF assume a condução do processo</div></td>
+                    <td>A devolução é procedente — CGDF assume a condução do processo</td>
                     <td>Avocação registrada. A continuidade ocorre <strong>via SEI</strong> (fora do SCI, por ora)</td>
                   </tr>
                   <tr>
                     <td><strong>Rejeitar a Devolução</strong></td>
-                    <td>A devolução não tem fundamento — o órgão de destino deve receber o processo</div></td>
-                    <td>Obrigatório preencher <strong>Justificativa</strong> e confirmar a rejeição</div></td>
+                    <td>A devolução não tem fundamento — o órgão de destino deve receber o processo</td>
+                    <td>Obrigatório preencher <strong>Justificativa</strong> e confirmar a rejeição</td>
                   </tr>
                 </tbody>
               </table>
@@ -1241,8 +1242,8 @@
               <table class="decision-table" style="margin-top:8px">
                 <thead><tr><th>Decisão</th><th>O que acontece</th></tr></thead>
                 <tbody>
-                  <tr><td>Devolver</div></td><td>Retorna ao Investigador com observações detalhadas</div></td></tr>
-                  <tr><td>Aprovar</div></td><td>Inicia automaticamente o ciclo de assinaturas</div></td></tr>
+                  <tr><td>Devolver</td><td>Retorna ao Investigador com observações detalhadas</td></tr>
+                  <tr><td>Aprovar</td><td>Inicia automaticamente o ciclo de assinaturas</td></tr>
                 </tbody>
               </table>
             </div>
@@ -1338,8 +1339,8 @@
               <table class="decision-table">
                 <thead><tr><th>Decisão</th><th>O que acontece</th></tr></thead>
                 <tbody>
-                  <tr><td>Devolver</div></td><td>Retorna ao Analista com observações. Status: <span class="badge badge-blue">Em análise</span></div></td></tr>
-                  <tr><td>Enviar à Autoridade</div></td><td>Pode indicar acordo/desacordo e adicionar considerações</div></td></tr>
+                  <tr><td>Devolver</td><td>Retorna ao Analista com observações. Status: <span class="badge badge-blue">Em análise</span></td></tr>
+                  <tr><td>Enviar à Autoridade</td><td>Pode indicar acordo/desacordo e adicionar considerações</td></tr>
                 </tbody>
               </table>
             </div>
@@ -1402,8 +1403,8 @@
               <table class="decision-table">
                 <thead><tr><th>Decisão</th><th>O que acontece</th></tr></thead>
                 <tbody>
-                  <tr><td>Devolver</div></td><td>Retorna ao Investigador com observações detalhadas</div></td></tr>
-                  <tr><td>Enviar à Autoridade</div></td><td>Pode indicar acordo/desacordo e adicionar considerações finais</div></td></tr>
+                  <tr><td>Devolver</td><td>Retorna ao Investigador com observações detalhadas</td></tr>
+                  <tr><td>Enviar à Autoridade</td><td>Pode indicar acordo/desacordo e adicionar considerações finais</td></tr>
                 </tbody>
               </table>
             </div>
@@ -1557,13 +1558,13 @@
                 <tbody>
                   <tr>
                     <td><strong>Finalizar</strong></td>
-                    <td>Nota correta e sem pendências</div></td>
-                    <td>JAD encerrado. Processo cai na caixa do Apoio para autuação no SEI</div></td>
+                    <td>Nota correta e sem pendências</td>
+                    <td>JAD encerrado. Processo cai na caixa do Apoio para autuação no SEI</td>
                   </tr>
                   <tr>
-                    <td><strong>Invalidar</strong></div></td>
-                    <td>Constatado erro material na nota após as assinaturas</div></td>
-                    <td>Nota invalidada com registro do motivo. Gera histórico e invalida as assinaturas</div></td>
+                    <td><strong>Invalidar</strong></td>
+                    <td>Constatado erro material na nota após as assinaturas</td>
+                    <td>Nota invalidada com registro do motivo. Gera histórico e invalida as assinaturas</td>
                   </tr>
                 </tbody>
               </table>
@@ -1593,24 +1594,24 @@
           <thead><tr><th>Ação</th><th>Quando usar</th><th>O que acontece</th></tr></thead>
           <tbody>
             <tr>
-              <td><strong>Finalizar</strong></div></td>
-              <td>Nota correta, processo encerrado na CGDF</div></td>
-              <td>JAD encerrado. Cai na caixa do Apoio para autuação no SEI</div></td>
+              <td><strong>Finalizar</strong></td>
+              <td>Nota correta, processo encerrado na CGDF</td>
+              <td>JAD encerrado. Cai na caixa do Apoio para autuação no SEI</td>
             </tr>
             <tr>
-              <td><strong>Invalidar</strong></div></td>
-              <td>Erro material na nota após as assinaturas</div></td>
-              <td>Nota invalidada com registro do motivo</div></td>
+              <td><strong>Invalidar</strong></td>
+              <td>Erro material na nota após as assinaturas</td>
+              <td>Nota invalidada com registro do motivo</td>
             </tr>
             <tr>
-              <td><strong>Encaminhar a Órgão Externo</strong></div></td>
-              <td>Recomendação é de remessa ao órgão de origem — processo não é de competência da CGDF</div></td>
-              <td>Abre a tela de encaminhamento descrita abaixo</div></td>
+              <td><strong>Encaminhar a Órgão Externo</strong></td>
+              <td>Recomendação é de remessa ao órgão de origem — processo não é de competência da CGDF</td>
+              <td>Abre a tela de encaminhamento descrita abaixo</td>
             </tr>
           </tbody>
         </table>
 
-        <div class="sec-subtitle" style="margin-top:16px">Passo a passo — Encaminhar a Órgão Externo</div>
+        <div class="sec-title" style="margin-top:16px">Passo a passo — Encaminhar a Órgão Externo</div>
         <div class="steps">
           <div class="step-card">
             <div class="step-num">1</div>
@@ -1631,19 +1632,19 @@
                 <thead><tr><th>Documento</th><th>Quando enviar</th><th>Como proceder</th></tr></thead>
                 <tbody>
                   <tr>
-                    <td><strong>Nota Técnica</strong></div></td>
-                    <td>Não houver dados sensíveis a tarjar</div></td>
-                    <td>Marque <strong>"Anexar Nota Técnica"</strong> — o sistema inclui o PDF gerado automaticamente</div></td>
+                    <td><strong>Nota Técnica</strong></td>
+                    <td>Não houver dados sensíveis a tarjar</td>
+                    <td>Marque <strong>"Anexar Nota Técnica"</strong> — o sistema inclui o PDF gerado automaticamente</td>
                   </tr>
                   <tr>
-                    <td><strong>Nota Técnica tarjada</strong></div></td>
-                    <td>Houver conteúdo sensível (dados de terceiros, informações protegidas)</div></td>
-                    <td>Faça o download da nota, tarje manualmente os trechos, salve e anexe via <strong>"Adicionar novo anexo"</strong></div></td>
+                    <td><strong>Nota Técnica tarjada</strong></td>
+                    <td>Houver conteúdo sensível (dados de terceiros, informações protegidas)</td>
+                    <td>Faça o download da nota, tarje manualmente os trechos, salve e anexe via <strong>"Adicionar novo anexo"</strong></td>
                   </tr>
                   <tr>
-                    <td><strong>Anexos da demanda</strong></div></td>
-                    <td>Os documentos originais puderem ser vistos pelo órgão de destino</div></td>
-                    <td>Selecione na lista <strong>"Anexos da demanda"</strong>. Se algum for sensível, não o selecione — baixe, tarje e reenvie manualmente</div></td>
+                    <td><strong>Anexos da demanda</strong></td>
+                    <td>Os documentos originais puderem ser vistos pelo órgão de destino</td>
+                    <td>Selecione na lista <strong>"Anexos da demanda"</strong>. Se algum for sensível, não o selecione — baixe, tarje e reenvie manualmente</td>
                   </tr>
                 </tbody>
               </table>
@@ -1840,12 +1841,12 @@
                 <thead><tr><th>Decisão</th><th>O que acontece</th></tr></thead>
                 <tbody>
                   <tr>
-                    <td>Retornar para ajustes</div></td>
-                    <td>Devolve ao Analista com observações. Status: <span class="badge badge-blue">Em análise</span></div></td>
+                    <td>Retornar para ajustes</td>
+                    <td>Devolve ao Analista com observações. Status: <span class="badge badge-blue">Em análise</span></td>
                   </tr>
                   <tr>
-                    <td>Enviar ao Gestor</div></td>
-                    <td>Pode indicar acordo/desacordo e adicionar considerações</div></td>
+                    <td>Enviar ao Gestor</td>
+                    <td>Pode indicar acordo/desacordo e adicionar considerações</td>
                   </tr>
                 </tbody>
               </table>
@@ -1906,12 +1907,12 @@
                 <thead><tr><th>Decisão</th><th>O que acontece</th></tr></thead>
                 <tbody>
                   <tr>
-                    <td>Devolver</div></td>
-                    <td>Retorna ao Investigador com observações. Status: <span class="badge badge-blue">Em análise</span></div></td>
+                    <td>Devolver</td>
+                    <td>Retorna ao Investigador com observações. Status: <span class="badge badge-blue">Em análise</span></td>
                   </tr>
                   <tr>
-                    <td>Enviar ao Gestor</div></td>
-                    <td>Pode indicar acordo/desacordo e adicionar considerações</div></td>
+                    <td>Enviar ao Gestor</td>
+                    <td>Pode indicar acordo/desacordo e adicionar considerações</td>
                   </tr>
                 </tbody>
               </table>
