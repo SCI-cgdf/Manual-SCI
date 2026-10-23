@@ -294,7 +294,9 @@
   }
   .overview-card p { font-size: 12px; line-height: 1.58; }
   .overview-card p + p { margin-top: 6px; }
-
+  /* ── TEXTO CORRIDO DENTRO DOS PASSOS ── */
+  .step-body p, .tab-panel > p { font-size: 15px; line-height: 1.5; }
+  .overview-card li { font-size: 12px; line-height: 1.58; }
   /* ── VISIBILITY ── */
   .tab-panel    { display: none; }
   .tab-panel.active  { display: block; }
@@ -350,7 +352,7 @@
   </button>
   <div class="-footer">
     SCI · Cartilha de Uso · JAD + PIP<br>
-    Março de 2026<br><br>
+    Outubro de 2026<br><br>
     <strong style="color:white;font-size:11px;display:block;margin-bottom:2px">Erika Oliveira</strong><span style="color:#93b3df;font-size:9px;display:block;margin-bottom:4px">Product Owner · Responsável Técnica SCI</span>erika.oliveira@cg.df.gov.br<br>☎ 61-2108-3294 · (61) 98334-1110
   </div>
 </nav>
@@ -383,7 +385,7 @@
 
       <div class="sec-title">Perfis de Usuário</div>
       <div class="gloss-grid">
-        <div class="gloss-item"><div class="gloss-term">📋 Apoio à Autoridade</div><div class="gloss-def">Registra demandas no sistema e realiza encaminhamentos formais por meio do SEI</div></div>
+        <div class="gloss-item"><div class="gloss-term">📋 Apoio à Autoridade</div><div class="gloss-def">Analisa as denúncias recebidas do Participa-DF, registra e completa demandas e realiza encaminhamentos formais por meio do SEI</div></div>
         <div class="gloss-item"><div class="gloss-term">⚖️ Autoridade Correcional</div><div class="gloss-def">Instância decisória responsável pelo juízo final de admissibilidade e pela deliberação quanto à instauração, condução e encerramento dos procedimentos correcionais no sistema.</div></div>
         <div class="gloss-item"><div class="gloss-term">📊 Gestor Correcional</div><div class="gloss-def">Coordena a tramitação das demandas correcionais, realiza a distribuição de processos, designa analistas/investigadores e promove a revisão técnica das análises e manifestações produzidas, antes da aprovação pela autoridade competente.</div></div>
         <div class="gloss-item"><div class="gloss-term">🔍 Analista / Investigador</div><div class="gloss-def">Responsável pela instrução técnica dos autos, mediante a realização de análises, diligências e coleta de elementos informativos, com vistas a subsidiar a tomada de decisão da autoridade competente.</div></div>
@@ -746,7 +748,7 @@
             <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">📋 DENÚNCIA — Recebida do Participa-DF (Apoio aceita ou recusa)</div>
             <div style="font-size: 20px;">↓</div>
             
-            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">📝 DEMANDA — Registrada pelo <span style="color: #ffd966;">APOIO</span></div>
+            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">📝 DEMANDA — Completada (ou registrada) pelo <span style="color: #ffd966;">APOIO</span></div>
             <div style="font-size: 20px;">↓</div>
             
             <div style="background: var(--accent); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">⚖️ AUTORIDADE — Analisa e encaminha para o JAD</div>
@@ -908,7 +910,7 @@
               <ul>
                                 <li>Formatos: txt, pdf, png, xlsx, docx, jpg, jpeg, mp3, mp4 · Limite: 25 MB por arquivo (nome com até 100 caracteres, incluindo ponto e extensão)</li>
                 <li>Em demandas vindas da aba Denúncias, os anexos já são importados: não anexe novamente</li>
-                <li>Sempre anexe o documento original que gerou a demanda</li>
+<li>Em demandas criadas por <strong>+ Nova Demanda</strong>, sempre anexe o documento original que gerou a demanda</li>
               </ul>
             </div>
           </div>
@@ -930,11 +932,22 @@
           <thead><tr><th>Ação</th><th>Significado</th></tr></thead>
           <tbody>
             <tr><td>Ícone de olho</td><td>Visualiza todos os dados da demanda sem editar</td></tr>
-            <tr><td>Ícone de lápis</td><td>Edição disponível apenas enquanto status = Aguardando análise</td></tr>
+            <tr><td>Ícone de lápis</td><td>Edição disponível enquanto status = Criada ou Aguardando análise</td></tr>
+<tr><td>Coluna Número Ouvidoria</td><td>Demandas vindas do Participa-DF mostram o número OUV. As criadas por + Nova Demanda mostram "Criada na unidade"</td></tr>
             <tr><td>Filtros</td><td>Localiza demandas por identificador, assunto, documento de origem ou status</td></tr>
           </tbody>
         </table>
-
+        <div class="sec-title">Status da Demanda</div>
+        <table class="flow-table">
+          <thead><tr><th colspan="2">Status</th><th>Significa</th></tr></thead>
+          <tbody>
+            <tr><td colspan="2"><span class="badge badge-blue">Criada</span></td><td>Denúncia aceita na aba Denúncias (Participa-DF). A demanda foi gerada e aguarda o Apoio completar o cadastro. A Autoridade ainda não pode encaminhá-la.</td></tr>
+            <tr><td colspan="2"><span class="badge badge-wait">Aguardando análise</span></td><td>Cadastro concluído pelo Apoio (ou demanda registrada por + Nova Demanda). Está pronta para a Autoridade analisar e encaminhar.</td></tr>
+          </tbody>
+        </table>
+        <div class="callout callout-info">
+          Demandas vindas do Participa-DF mostram o número da Ouvidoria (ex.: OUV-000109/2026) na coluna <strong>Número Ouvidoria</strong>. As criadas por <strong>+ Nova Demanda</strong> mostram "Criada na unidade".
+        </div>
         <div class="sec-title">Autuação Final no JAD</div>
         <div class="overview-card">
           <p>Após o ciclo completo de assinaturas, localize os JADs com status <span class="badge badge-done">Concluído</span>, faça o download da nota técnica assinada e autue o processo no SEI conforme a recomendação da Autoridade.</p>
@@ -2174,6 +2187,7 @@
     gestor:     ['Gestor Correcional',     '· JAD + PIP'],
     analista:   ['Analista / Investigador','· JAD + PIP'],
     revisor:    ['Revisor',                '· JAD + PIP'],
+    assessor:   ['Assessor Correcional',   '· JAD + PIP'],
     regras:     ['Regras de Ouro',         '· Princípios fundamentais'],
     fluxogramas: ['Fluxogramas',           '· JAD e PIP'],
     denuncias:  ['Denúncias · Participa-DF', '· Integração com a Ouvidoria'],
