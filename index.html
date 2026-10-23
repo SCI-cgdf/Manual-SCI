@@ -337,7 +337,10 @@
   <button class="nav-btn" onclick="showSection('assessor')" id="nav-assessor">
     <span class="nav-icon">👥</span> Assessor Correcional
   </button>
-
+ <div class="-label" style="margin-top:6px">Integrações</div>
+  <button class="nav-btn" onclick="showSection('denuncias')" id="nav-denuncias">
+    <span class="nav-icon">📥</span> Denúncias · Participa-DF
+  </button>
   <div class="-label" style="margin-top:6px">Documentos</div>
   <button class="nav-btn" onclick="showSection('regras')" id="nav-regras">
     <span class="nav-icon">👑</span> Regras de Ouro
@@ -407,7 +410,7 @@
       <table class="flow-table">
         <thead><tr><th>#</th><th>Persona</th><th>O que faz</th><th>Resultado</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td>Apoio à Autoridade</td><td>Registra a demanda no SCI</td><td><em>Demanda criada</em></td></tr>
+          <tr><td>1</td><td>Apoio à Autoridade</td><td>Aceita a denúncia do Participa-DF e completa a demanda (ou registra demanda de outra origem)</td><td><em>Demanda criada → Aguardando análise</em></td></tr>
           <tr><td>2</td><td>Autoridade Correcional</td><td>Analisa e encaminha a demanda</td><td><em>JAD criado (Aguardando distribuição)</em></td></tr>
           <tr><td>3</td><td>Gestor Correcional</td><td>Distribui o JAD para um analista</td><td><em>JAD atribuído</em></td></tr>
           <tr><td>4</td><td>Analista</td><td>Cadastra fatos, envolvidos, evidências; elabora análise e fundamentação</td><td><em>JAD enviado ao Revisor</em></td></tr>
@@ -581,7 +584,127 @@
         </div>
       </div>
     </div>
-    
+        <!-- ══════════════════════════════
+         DENÚNCIAS · INTEGRAÇÃO PARTICIPA-DF
+    ══════════════════════════════ -->
+    <div class="section-page" id="page-denuncias">
+      <div class="persona-intro-box">
+        <span class="persona-tag">Apoio à Autoridade · Denúncias</span>
+        <p>As denúncias já classificadas pela Ouvidoria chegam direto ao SCI, na aba <strong>Denúncias</strong> do Apoio à Autoridade. Não é mais preciso acessar o Participa-DF, baixar os anexos e reanexá-los: eles vêm importados automaticamente.</p>
+      </div>
+      <div class="access-box">🔗 sci.cg.df.gov.br &nbsp;·&nbsp; Login e Senha PARTICIPA</div>
+
+      <div class="sec-title">O que mudou</div>
+      <table class="decision-table">
+        <thead><tr><th>Antes</th><th>Agora</th></tr></thead>
+        <tbody>
+          <tr><td>Órgãos com acesso ao Participa-DF entravam nele, recebiam a denúncia, baixavam os anexos e preenchiam a demanda no SCI.</td><td>A denúncia cai direto na aba Denúncias do SCI.</td></tr>
+          <tr><td>Órgãos sem acesso dependiam da Ouvidoria Seccional/Central e recebiam a denúncia por processo SEI.</td><td>A denúncia chega pelo SCI, sem trâmite paralelo por SEI.</td></tr>
+          <tr><td>Anexos baixados e reanexados manualmente.</td><td>Anexos importados automaticamente.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="sec-title">Visão do fluxo</div>
+      <div class="sign-seq">
+        <span class="sign-step">Participa-DF</span><span class="sign-arrow">→</span>
+        <span class="sign-step">Denúncias · Aguardando análise</span><span class="sign-arrow">→</span>
+        <span class="sign-step">Apoio aceita</span><span class="sign-arrow">→</span>
+        <span class="sign-step">Demandas · Criada</span><span class="sign-arrow">→</span>
+        <span class="sign-step last">Demanda · Aguardando análise</span>
+      </div>
+
+      <div class="sec-title">Status da denúncia</div>
+      <table class="flow-table">
+        <thead><tr><th colspan="2">Status</th><th>Significa</th></tr></thead>
+        <tbody>
+          <tr><td colspan="2"><span class="badge badge-wait">Aguardando análise</span></td><td>A denúncia chegou do Participa-DF. O Apoio ainda não decidiu.</td></tr>
+          <tr><td colspan="2"><span class="badge badge-done">Aceita</span></td><td>O Apoio aceitou. Foi gerada uma demanda com status <strong>Criada</strong>.</td></tr>
+          <tr><td colspan="2"><span class="badge" style="background:#fdecea;color:#a23b3b;">Recusada</span></td><td>O Apoio recusou. A denúncia voltou ao Participa-DF para nova avaliação da Ouvidoria.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="sec-title">Passo a passo</div>
+      <div class="steps">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">Acessar a aba Denúncias</div>
+            <ul>
+              <li>Menu lateral → <strong>Denúncias</strong></li>
+              <li>A lista mostra Número Ouvidoria, data de recebimento e status</li>
+              <li>Clique na denúncia com status <span class="badge badge-wait">Aguardando análise</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">Analisar a denúncia e os anexos</div>
+            <ul>
+              <li>A tela mostra o Número Ouvidoria, a data de recebimento e a identificação (anônima ou identificada)</li>
+              <li>Em <strong>Anexos</strong>, use <strong>Visualizar</strong> para ler o relato (PDF do Participa-DF) ou <strong>Baixar</strong> para salvar o arquivo</li>
+              <li>Leia o relato completo antes de decidir</li>
+            </ul>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">Decidir</div>
+            <table class="decision-table">
+              <thead><tr><th>Botão</th><th>Quando usar</th><th>O que acontece</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Aceitar denúncia</strong></td><td>A manifestação é, de fato, uma denúncia</td><td>Vai para a aba <strong>Demandas</strong> com status <strong>Criada</strong></td></tr>
+                <tr><td><strong>Recusar denúncia</strong></td><td>A manifestação <strong>não se enquadra como denúncia</strong> e precisa ser reclassificada pela Ouvidoria</td><td>Abre a tela de justificativa. Após confirmar, volta ao Participa-DF com status <strong>Recusada</strong></td></tr>
+              </tbody>
+            </table>
+            <ul style="margin-top:8px">
+              <li>Para recusar, preencha o <strong>Motivo da recusa</strong> (até 1.000 caracteres), explicando por que não se trata de denúncia</li>
+              <li>Clique em <strong>Confirmar recusa</strong> (ou em <strong>Cancelar</strong> para voltar)</li>
+            </ul>
+            <div class="callout callout-warn" style="margin-top:8px">
+              <strong>⚠ A recusa é irreversível.</strong> Depois de confirmada, não pode ser desfeita no SCI: a tela passa a exibir "Esta denúncia já foi analisada como Recusada". Use apenas quando a manifestação não for uma denúncia e descreva o motivo com clareza, porque é ele que orientará a nova avaliação da Ouvidoria.
+            </div>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <div class="step-title">Completar a demanda (denúncia aceita)</div>
+            <ul>
+              <li>Menu lateral → <strong>Demandas</strong>. A demanda aparece com status <strong>Criada</strong> e o número da Ouvidoria na coluna <strong>Número Ouvidoria</strong></li>
+              <li>Clique no ícone de <strong>lápis (editar)</strong></li>
+              <li>Preencha os campos como sempre: Tipo de documento, Origem, Documento Origem, Assunto, Âmbito funcional, Descrição, Demandante e Agente Envolvido</li>
+              <li><strong>Não é preciso anexar nada:</strong> os anexos do Participa-DF já estão na demanda</li>
+              <li>Clique em <strong>Salvar Demanda</strong></li>
+            </ul>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <div class="step-title">Resultado</div>
+            <ul>
+              <li>Status muda para <span class="badge badge-wait">Aguardando análise</span></li>
+              <li>A demanda segue o fluxo normal do JAD: a Autoridade analisa e encaminha</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec-title">Autoridade Correcional</div>
+      <div class="callout callout-info">
+        A Autoridade vê a aba <strong>Denúncias</strong> e as demandas com status <strong>Criada</strong>, mas <strong>não pode fazer nenhuma ação</strong> nelas. O encaminhamento só fica disponível depois que o Apoio conclui o cadastro e a demanda passa a <strong>Aguardando análise</strong>.
+      </div>
+
+      <div class="sec-title">Regras importantes</div>
+      <div class="callout callout-green">
+        <strong>✅ Resposta ao cidadão:</strong> é enviada automaticamente ao Participa-DF <strong>no momento da criação do JAD</strong> (PCE-JAD). O Apoio não precisa responder manualmente.
+      </div>
+      <div class="callout callout-warn">
+        <strong>⚠ Demandas de outras origens</strong> (ofício, MPDFT etc.) continuam sendo registradas em <strong>+ Nova Demanda</strong>, com anexos adicionados manualmente.
+      </div>
+    </div><!-- /page-denuncias -->
     <!-- REGRAS DE OURO -->
     <div class="section-page" id="page-regras">
       <div class="sec-title">👑 Regras de Ouro do SCI</div>
@@ -620,7 +743,7 @@
         <div style="background: white; border-radius: 16px; padding: 24px;">
           <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
             
-            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">📋 DENÚNCIA</div>
+            <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">📋 DENÚNCIA — Recebida do Participa-DF (Apoio aceita ou recusa)</div>
             <div style="font-size: 20px;">↓</div>
             
             <div style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 40px; font-weight: bold; text-align: center;">📝 DEMANDA — Registrada pelo <span style="color: #ffd966;">APOIO</span></div>
@@ -733,6 +856,9 @@
         <div class="access-box">🔗 sci.cg.df.gov.br &nbsp;·&nbsp; Login e Senha PARTICIPA</div>
 
         <div class="sec-title">Registrar Nova Demanda</div>
+                <div class="callout callout-info">
+          <strong>📥 Demandas vindas do Participa-DF:</strong> não use <strong>+ Nova Demanda</strong>. Aceite a denúncia na aba <strong>Denúncias</strong> e complete a demanda por <strong>Editar</strong>. Veja o módulo <em>Denúncias · Participa-DF</em>.
+        </div>
         <div class="steps">
           <div class="step-card">
             <div class="step-num">1</div>
@@ -780,7 +906,8 @@
             <div class="step-body">
               <div class="step-title">Adicionar Anexos (Opcional)</div>
               <ul>
-                <li>Formatos: txt, pdf, png, jpg, mp3, mp4 · Limite: 10 MB por arquivo</li>
+                                <li>Formatos: txt, pdf, png, xlsx, docx, jpg, jpeg, mp3, mp4 · Limite: 25 MB por arquivo (nome com até 100 caracteres, incluindo ponto e extensão)</li>
+                <li>Em demandas vindas da aba Denúncias, os anexos já são importados: não anexe novamente</li>
                 <li>Sempre anexe o documento original que gerou a demanda</li>
               </ul>
             </div>
@@ -995,7 +1122,9 @@
               </ul>
             </div>
           </div>
-
+        </div><!-- /steps -->
+      </div><!-- /panel-apoio-pip -->
+    </div><!-- /page-apoio -->
     <!-- ══════════════════════════════
          AUTORIDADE CORRECIONAL
     ══════════════════════════════ -->
@@ -1018,7 +1147,10 @@
             <div class="step-num">1</div>
             <div class="step-body">
               <div class="step-title">Acessar o Painel de Demandas</div>
-              <ul><li>O sistema abre na lista de demandas com status <span class="badge badge-wait">Aguardando análise</span></li></ul>
+<ul>
+  <li>O sistema abre na lista de demandas com status <span class="badge badge-wait">Aguardando análise</span></li>
+  <li>Demandas com status <strong>Criada</strong> (vindas do Participa-DF) ainda não podem ser encaminhadas: aguarde o Apoio concluir o cadastro</li>
+</ul>
             </div>
           </div>
           <div class="step-card">
@@ -2044,6 +2176,7 @@
     revisor:    ['Revisor',                '· JAD + PIP'],
     regras:     ['Regras de Ouro',         '· Princípios fundamentais'],
     fluxogramas: ['Fluxogramas',           '· JAD e PIP'],
+    denuncias:  ['Denúncias · Participa-DF', '· Integração com a Ouvidoria'],
   };
 
   function showSection(id) {
